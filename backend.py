@@ -1,17 +1,23 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify
 import databasehelper as dbh
 from waitress import serve
 
 app = Flask(__name__)
 
+@app.teardown_request
+def teardown(exception):
+    dbh.disconnect()
 
 @app.route('/', methods = ['GET'])
 def return_data():
     data, suc = dbh.get_entries()
+    entries = {"entries":data}
     if not suc:
-        return "Fail", 500
+        entries = {"entries": "Fail"}
+        return entries, 500
     else:
-        return jsonify(data), 200
+        print(entries)
+        return jsonify(entries), 200
 
 @app.route('/send', methods = ['POST'])
 def publish_data():
