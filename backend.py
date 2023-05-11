@@ -21,7 +21,6 @@ def return_data():
         entries = {"entries": "Fail"}
         return entries, 500
     else:
-        print(entries)
         return jsonify(entries), 200
 
 @app.route('/send', methods = ['POST'])

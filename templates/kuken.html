@@ -6,18 +6,14 @@
 <body>
 <div>
     <div id='dform'>
-        <form id='formform'> 
-          <label for='namn'>
-          Namn:
-          </label>
-          <input for="namn" type="text" required>
-          <label for="tex">
-          Text:
-          </label>  
-          <textarea id="text" id='longtext' type="text"></textarea>
-          <input type="submit" value="Skicka" onsubmit="" required>
+        <form onsubmit="skickaSkit(this);return false;" id='formform'> 
+          <label for='namn'>Namn: </label>
+          <input id="namn" type="text" required>
+          <label for="text">Text: </label>  
+          <textarea id="text" type="text" required></textarea>
+          <input type="submit" value="Skicka" >
         </form>
-        </div>
+    </div>
 </div>
 <div>
     <ul id="lista">
