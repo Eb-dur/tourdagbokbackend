@@ -1,0 +1,33 @@
+body{
+    background-color: bisque;
+    display: flex;
+  }
+  
+  #main{
+   
+    padding: 5px;
+  }
+  
+  #dform{
+    width: 200px;
+    border: 10px;
+    border-style: groove;
+    margin-top: 10px;
+    align-self: flex-start;
+  }
+  
+  #formform{
+    display: flex;
+    width: 99%;
+    flex-direction: column;
+    margin-bottom: 1px;
+  }
+  
+  textarea{
+    resize: none;
+
+  }
+  
+  #text{
+    height: 400px;
+  }

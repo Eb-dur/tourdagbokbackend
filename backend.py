@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import databasehelper as dbh
 from waitress import serve
 
@@ -8,7 +8,12 @@ app = Flask(__name__)
 def teardown(exception):
     dbh.disconnect()
 
-@app.route('/', methods = ['GET'])
+@app.route('/', methods=["GET"])
+def root():
+    return render_template("kuken.html")
+
+
+@app.route('/get', methods = ['GET'])
 def return_data():
     data, suc = dbh.get_entries()
     entries = {"entries":data}
